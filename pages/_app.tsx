@@ -12,6 +12,11 @@ import "../styles/sign-up.css";
 import "../styles/sign-up-photo.css";
 import "../styles/sign-up-success.css";
 import "../styles/404-not-found.css";
+import "../styles/overview.css";
+import "../styles/sidebar.css";
+import "../styles/transactions.css";
+import "../styles/transactions-detail.css";
+import "../styles/edit-profile.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
