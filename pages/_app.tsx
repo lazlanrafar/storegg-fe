@@ -5,6 +5,7 @@ import Head from "next/head";
 import "../styles/homepage.css";
 import "../styles/utilities.css";
 import "../styles/detail.css";
+import "../styles/checkout.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
