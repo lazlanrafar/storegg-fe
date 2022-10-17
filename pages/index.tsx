@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
-const AOS = require("aos");
+import AOS from "aos";
 
 const Home: NextPage = () => {
   useEffect(() => {
