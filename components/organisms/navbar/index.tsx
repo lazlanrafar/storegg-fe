@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import IsAuth from "./is-auth";
 import NavItem from "./nav-item";
 
 export default function Navbar() {
@@ -35,15 +36,8 @@ export default function Navbar() {
               <NavItem title={"Rewards"} href={"/"} />
               <NavItem title={"Discover"} href={"/"} />
               <NavItem title={"Global Rank"} href={"/"} />
-              <li className="nav-item my-auto">
-                <a
-                  className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill"
-                  href="./src/sign-in.html"
-                  role="button"
-                >
-                  Sign In
-                </a>
-              </li>
+
+              <IsAuth isAuth={true} />
             </ul>
           </div>
         </div>
