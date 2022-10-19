@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import AtomInputRadio from "../../components/atoms/atom-input-radio";
 import AtomInputText from "../../components/atoms/atom-input-text";
 import Footer from "../../components/organisms/footer";
 import Navbar from "../../components/organisms/navbar";
-import GameTitle from "./game-title";
+import DetailGameTitle from "../../components/molecules/detail-game-title";
 
 export default function Detail() {
   return (
@@ -32,7 +33,7 @@ export default function Detail() {
                     alt=""
                   />
                 </div>
-                <GameTitle
+                <DetailGameTitle
                   type="mobile"
                   game="Mobile Legends"
                   typeTopUp="The New Battle 2021"
@@ -41,7 +42,7 @@ export default function Detail() {
               </div>
             </div>
             <div className="col-xl-9 col-lg-8 col-md-7 ps-md-25">
-              <GameTitle
+              <DetailGameTitle
                 type="desktop"
                 game="Mobile Legends"
                 typeTopUp="The New Battle 2021"
@@ -104,13 +105,11 @@ export default function Detail() {
                   />
                 </div>
                 <div className="d-sm-block d-flex flex-column w-100">
-                  <a
-                    href="./checkout.html"
-                    type="submit"
-                    className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg"
-                  >
-                    Continue
-                  </a>
+                  <Link href={"/checkout"}>
+                    <a className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg">
+                      Continue
+                    </a>
+                  </Link>
                 </div>
               </form>
             </div>

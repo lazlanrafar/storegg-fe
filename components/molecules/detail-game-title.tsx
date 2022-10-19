@@ -4,7 +4,7 @@ interface Props {
   typeTopUp: string;
   category: string;
 }
-export default function GameTitle(props: Props) {
+export default function DetailGameTitle(props: Props) {
   if (props.type == "desktop") {
     return (
       <div className="pb-50 d-md-block d-none">
