@@ -1,11 +1,13 @@
 interface Props {
   label: string;
   placeholder: string;
+  type?: string | "text";
 }
 
-export default function AtomInputText(props: Props) {
+export default function AtomInputText(props: Props): JSX.Element {
+  const { type = "text" } = props;
   return (
-    <div className="">
+    <>
       <label
         htmlFor={props.label}
         className="form-label text-lg fw-medium color-palette-1 mb-10"
@@ -13,12 +15,13 @@ export default function AtomInputText(props: Props) {
         {props.label}
       </label>
       <input
-        type="text"
+        type={type}
         className="form-control rounded-pill text-lg"
         id={props.label}
         name={props.label}
         placeholder={props.placeholder}
+        aria-describedby={props.label}
       />
-    </div>
+    </>
   );
 }
