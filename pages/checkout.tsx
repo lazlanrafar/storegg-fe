@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CheckoutGameTitle from "../components/molecules/checkout-game-title";
 import CheckoutTable from "../components/molecules/checkout-table";
 
@@ -54,13 +55,11 @@ export default function Checkout() {
           <span className="checkmark"></span>
         </label>
         <div className="d-md-block d-flex flex-column w-100 pt-50">
-          <a
-            className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg"
-            href="./complete-checkout.html"
-            role="button"
-          >
-            Confirm Payment
-          </a>
+          <Link href="/checkout-complete">
+            <a className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg">
+              Confirm Payment
+            </a>
+          </Link>
         </div>
       </div>
     </section>
