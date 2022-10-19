@@ -41,7 +41,7 @@ export default function SidebarMenu() {
     {
       title: "Log Out",
       icon: "/icon/ic-logout.svg",
-      href: "/login",
+      href: "/sign-in",
     },
   ]);
 
