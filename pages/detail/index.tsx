@@ -1,42 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import AtomInputRadio from "../../components/atoms/atom-input-radio";
+import AtomInputText from "../../components/atoms/atom-input-text";
 import Footer from "../../components/organisms/footer";
 import Navbar from "../../components/organisms/navbar";
-import NominalTopupItem from "./nominal-topup-item";
+import DetailGameTitle from "../../components/molecules/detail-game-title";
 
 export default function Detail() {
-  const [listNominal, setListNominal] = useState([
-    {
-      key: "1",
-      amount: 125,
-      currency: "Gold",
-      price: "Rp 3.250.000",
-    },
-    {
-      key: "2",
-      amount: 225,
-      currency: "Gold",
-      price: "Rp 3.250.000",
-    },
-    {
-      key: "3",
-      amount: 350,
-      currency: "Gold",
-      price: "Rp 3.250.000",
-    },
-    {
-      key: "4",
-      amount: 550,
-      currency: "Gold",
-      price: "Rp 3.250.000",
-    },
-    {
-      key: "5",
-      amount: 750,
-      currency: "Gold",
-      price: "Rp 3.250.000",
-    },
-  ]);
   return (
     <>
       <Navbar />
@@ -62,181 +33,83 @@ export default function Detail() {
                     alt=""
                   />
                 </div>
-                {/* <!-- Mobile: Game title --> */}
-                <div className="col-md-12 col-8 d-md-none d-block">
-                  <h2 className="text-xl fw-bold color-palette-1 text-start mb-10">
-                    Mobile Legends:
-                    <br />
-                    The New Battle 2021
-                  </h2>
-                  <p className="text-sm color-palette-2 text-start mb-0">
-                    Category: Mobile
-                  </p>
-                </div>
+                <DetailGameTitle
+                  type="mobile"
+                  game="Mobile Legends"
+                  typeTopUp="The New Battle 2021"
+                  category="Mobile"
+                />
               </div>
             </div>
             <div className="col-xl-9 col-lg-8 col-md-7 ps-md-25">
-              {/* <!-- Desktop: Game title --> */}
-              <div className="pb-50 d-md-block d-none">
-                <h2 className="text-4xl fw-bold color-palette-1 text-start mb-10 mt-10">
-                  Mobile Legends:
-                  <br />
-                  The New Battle 2021
-                </h2>
-                <p className="text-lg color-palette-2 mb-0">Category: Mobile</p>
-              </div>
+              <DetailGameTitle
+                type="desktop"
+                game="Mobile Legends"
+                typeTopUp="The New Battle 2021"
+                category="Mobile"
+              />
               <hr />
               <form action="./checkout.html" method="POST">
                 <div className="pt-md-50 pt-30">
-                  <div className="">
-                    <label
-                      htmlFor="ID"
-                      className="form-label text-lg fw-medium color-palette-1 mb-10"
-                    >
-                      Verify ID
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control rounded-pill text-lg"
-                      id="ID"
-                      name="ID"
-                      aria-describedby="verifyID"
-                      placeholder="Enter your ID"
-                    />
-                  </div>
+                  <AtomInputText
+                    label="Verify ID"
+                    placeholder="Enter your ID"
+                  />
                 </div>
                 <div className="pt-md-50 pb-md-50 pt-30 pb-20">
-                  <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">
-                    Nominal Top Up
-                  </p>
-                  <div className="row justify-content-between">
-                    {listNominal.map((item) => (
-                      <NominalTopupItem
-                        key={item.key}
-                        amount={item.amount}
-                        currency={item.currency}
-                        price={item.price}
-                      />
-                    ))}
-                    <div className="col-lg-4 col-sm-6">
-                      {/* <!-- Blank --> */}
-                    </div>
-                  </div>
+                  <AtomInputRadio
+                    label="Nominal Top Up"
+                    items={[
+                      {
+                        name: "125Gold",
+                        value: "Rp 3.250.000",
+                      },
+                      {
+                        name: "225Gold",
+                        value: "Rp 3.250.000",
+                      },
+                      {
+                        name: "350Gold",
+                        value: "Rp 3.250.000",
+                      },
+                      {
+                        name: "550Gold",
+                        value: "Rp 3.250.000",
+                      },
+                      {
+                        name: "750Gold",
+                        value: "Rp 3.250.000",
+                      },
+                    ]}
+                  />
                 </div>
                 <div className="pb-md-50 pb-20">
-                  <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">
-                    Payment Method
-                  </p>
-                  <fieldset id="paymentMethod">
-                    <div className="row justify-content-between">
-                      <label
-                        className="col-lg-4 col-sm-6 ps-md-15 pe-md-15 pt-md-15 pb-md-15 pt-10 pb-10"
-                        htmlFor="transfer"
-                      >
-                        <input
-                          className="d-none"
-                          type="radio"
-                          id="transfer"
-                          name="paymentMethod"
-                          value="transfer"
-                        />
-                        <div className="detail-card">
-                          <div className="d-flex justify-content-between">
-                            <p className="text-3xl color-palette-1 fw-medium m-0">
-                              Transfer
-                            </p>
-                            <svg
-                              id="icon-check"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle cx="10" cy="10" r="10" fill="#CDF1FF" />
-                              <path
-                                d="M5.83301 10L8.46459 12.5L14.1663 7.5"
-                                stroke="#00BAFF"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </div>
-                          <p className="text-lg color-palette-1 m-0">
-                            Worldwide Available
-                          </p>
-                        </div>
-                      </label>
-                      <label
-                        className="col-lg-4 col-sm-6 ps-md-15 pe-md-15 pt-md-15 pb-md-15 pt-10 pb-10"
-                        htmlFor="visa"
-                      >
-                        <input
-                          className="d-none"
-                          type="radio"
-                          id="visa"
-                          name="paymentMethod"
-                          value="visa"
-                        />
-                        <div className="detail-card">
-                          <div className="d-flex justify-content-between">
-                            <p className="text-3xl color-palette-1 fw-medium m-0">
-                              VISA
-                            </p>
-                            <svg
-                              id="icon-check"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle cx="10" cy="10" r="10" fill="#CDF1FF" />
-                              <path
-                                d="M5.83301 10L8.46459 12.5L14.1663 7.5"
-                                stroke="#00BAFF"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </div>
-                          <p className="text-lg color-palette-1 m-0">
-                            Credit Card
-                          </p>
-                        </div>
-                      </label>
-                      <div className="col-lg-4 col-sm-6">
-                        {/* <!-- Blank --> */}
-                      </div>
-                    </div>
-                  </fieldset>
+                  <AtomInputRadio
+                    label="Payment Method"
+                    items={[
+                      {
+                        name: "Transfer",
+                        value: "Worldwide Available",
+                      },
+                      {
+                        name: "VISA",
+                        value: "Credit Card",
+                      },
+                    ]}
+                  />
                 </div>
                 <div className="pb-50">
-                  <label
-                    htmlFor="bankAccount"
-                    className="form-label text-lg fw-medium color-palette-1 mb-10"
-                  >
-                    Bank Account Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control rounded-pill text-lg"
-                    id="bankAccount"
-                    name="bankAccount"
-                    aria-describedby="bankAccount"
+                  <AtomInputText
+                    label="Bank Account Name"
                     placeholder="Enter your Bank Account Name"
                   />
                 </div>
                 <div className="d-sm-block d-flex flex-column w-100">
-                  <a
-                    href="./checkout.html"
-                    type="submit"
-                    className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg"
-                  >
-                    Continue
-                  </a>
+                  <Link href={"/checkout"}>
+                    <a className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg">
+                      Continue
+                    </a>
+                  </Link>
                 </div>
               </form>
             </div>
