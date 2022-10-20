@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CardTotalTopup from "../../components/molecules/card-total-topup";
-import TrLatestTransaction from "../../components/molecules/tr-latest-transaction";
+import TrTransaction from "../../components/molecules/tr-transaction";
 import MemberSidebar from "../../components/organisms/member-sidebar";
 
 export default function Member() {
@@ -54,13 +54,14 @@ export default function Member() {
                   </tr>
                 </thead>
                 <tbody>
-                  <TrLatestTransaction
-                    image="/img/overview-2.png"
-                    title="Call of Duty:Modern"
-                    type="Dekstop"
-                    item="1.000 COD Points"
+                  <TrTransaction
+                    image="/img/overview-3.png"
+                    title="Mobile Legends"
+                    type="Mobile"
+                    item="1.000 Diamonds"
                     price="Rp 1.000.000"
-                    status="pending"
+                    status="success"
+                    action={false}
                   />
                 </tbody>
               </table>
